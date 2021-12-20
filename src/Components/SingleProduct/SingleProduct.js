@@ -3,7 +3,7 @@ import React from 'react';
 const SingleProduct = ({data}) => {
     const {img , key , price, name, seller , star , url , category} = data
     return (
-        <div>
+        <div className='border-2'>
            <div className='p-3 rounded-2xl '>
                <div className='flex justify-center items-center'>
                    <img src={img}/>
@@ -15,6 +15,10 @@ const SingleProduct = ({data}) => {
                    <div className='flex justify-evenly '>
                    <p>Category : {category}</p>
                    <p>seller: {seller}</p>
+
+                   </div>
+                   <div>
+                       <p className="text-red-500 ">Price : ${price}</p>
 
                    </div>
                  
