@@ -1,16 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProduct } from '../../redux/slices/productSlice';
+
 import SingleProduct from '../SingleProduct/SingleProduct';
 
 const ProductComponent = () => {
-    const [products , setProducts] = useState([]);
+    const dispatch = useDispatch()
+
     useEffect(()=> {
-        fetch('./fake.json')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-          setProducts(data)
-        })
-    },[])
+        dispatch(fetchProduct())
+        
+    }, [])
+
+    const products = useSelector((state) => state.product.discover)
+   
+    // const [products , setProducts] = useState([]);
+    // useEffect(()=> {
+    //     fetch('./fake.json')
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data)
+    //       setProducts(data)
+    //     })
+    // },[])
     return (
         <div className='grid grid-cols-4 '>
             {
