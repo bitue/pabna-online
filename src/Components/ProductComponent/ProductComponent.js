@@ -14,19 +14,11 @@ const ProductComponent = () => {
 
     const products = useSelector((state) => state.product.discover)
    
-    // const [products , setProducts] = useState([]);
-    // useEffect(()=> {
-    //     fetch('./fake.json')
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data)
-    //       setProducts(data)
-    //     })
-    // },[])
+ 
     return (
         <div className='grid grid-cols-4 '>
             {
-                products.map(product => <SingleProduct key={product.key} data = {product}></SingleProduct>)
+                products.map(product => <SingleProduct key={product.key} data = {product} state={'discover'}></SingleProduct>)
             }
             
             

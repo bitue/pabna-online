@@ -16,25 +16,30 @@ export const fetchProduct = createAsyncThunk(
 
 
 
+
+
 export const productSlice = createSlice({
     name:'product',
     initialState: {
-        wishList:[],
+        checkoutList:[],
         cartList:[],
         discover:[]
     },
     reducers:{
-        addToCart: (state, action) => {
-            state.cartList.push(action.payload)
+        addToCart: (state, {payload}) => {
+          
+            
+            state.cartList.push(payload) 
+          
+            
         },
-        addToWishList : (state, action) => {
-            state.wishList.push(action.payload)
-        },
-        removeFromWishList: (state, action) => {
-            state.wishList = state.wishList.filter(ele=> ele.key !== action.payload)
-        },
+      
+      
         removeFromCartList: (state, action) => {
             state.cartList = state.cartList.filter(ele=> ele.key !== action.payload)
+        },
+        addQuantity : (state, {payload}) =>  {
+           payload.qty = payload.qty+1 ;
         }
     },
     extraReducers: (builder) => {
@@ -47,6 +52,6 @@ export const productSlice = createSlice({
 
 })
 
-export const {addToCart, addToWishList, removeFromCartList, removeFromWishList} = productSlice.actions;
+export const {addToCart, removeFromCartList } = productSlice.actions;
 
 export default productSlice.reducer
