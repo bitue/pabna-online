@@ -16,7 +16,7 @@ const ProductComponent = () => {
    
  
     return (
-        <div className='grid grid-cols-4 '>
+        <div className='grid grid-cols-4 px-3 '>
             {
                 products.map(product => <SingleProduct key={product.key} data = {product} state={'discover'}></SingleProduct>)
             }

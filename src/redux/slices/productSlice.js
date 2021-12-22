@@ -4,10 +4,14 @@ import { createSlice ,  createAsyncThunk} from "@reduxjs/toolkit";
 
 export const fetchProduct = createAsyncThunk(
     'product/fetchByUser',
-    async () => {
+    async (product) => {
       const response = await fetch('./fake.json') ;
       const data = await response.json();
       console.log(1)
+      if(product) {
+        const realData = data.filter(ele=> ele.category === product) ;
+        return realData
+      }
       
 
       return data
@@ -29,7 +33,7 @@ export const productSlice = createSlice({
         addToCart: (state, {payload}) => {
           
             
-            state.cartList.push(payload) 
+          state.cartList.push(payload) 
           
             
         },
@@ -38,9 +42,7 @@ export const productSlice = createSlice({
         removeFromCartList: (state, action) => {
             state.cartList = state.cartList.filter(ele=> ele.key !== action.payload)
         },
-        addQuantity : (state, {payload}) =>  {
-           payload.qty = payload.qty+1 ;
-        }
+       
     },
     extraReducers: (builder) => {
        
