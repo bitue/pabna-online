@@ -16,7 +16,7 @@ const Nav = () => {
                  <NavLink to='/product'>Products</NavLink>
                  <NavLink to='/cart'>Cart <sup>{cartList.length}</sup></NavLink>
                  
-                 <NavLink to='/dashboard'>Dashboard</NavLink>
+                 <NavLink to='/signIn'>SignIn</NavLink>
              </div>
 
         </div>

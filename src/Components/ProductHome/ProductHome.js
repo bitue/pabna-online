@@ -17,10 +17,12 @@ const ProductHome = () => {
     const products = useSelector((state) => state.product.discover)
     return (
         <>
-        <div>
-            <button onClick={()=> setState('laptop')}>Laptop</button>
-            <button onClick={()=> setState('android')}>Mobile</button>
-            <button onClick={()=> setState('camera')}>camera</button>
+        <h1 className='text-2xl font-semibold text-2xl text-center'>Our Products </h1>
+        <div className='flex justify-center space-x-5 '>
+
+            <button className={state==='laptop' ? 'bg-red-500 px-4 py-1 rounded-2xl font-semibold my-3 ' : 'bg-gray-100 px-4 py-1 rounded-2xl font-semibold my-3 ' } onClick={()=> setState('laptop')}>Laptop</button>
+            <button className={state==='android' ? 'bg-red-500 px-4 py-1 rounded-2xl font-semibold my-3 ' : 'bg-gray-100 px-4 py-1 rounded-2xl font-semibold my-3 ' }onClick={()=> setState('android')}>Mobile</button>
+            <button className={state==='camera' ? 'bg-red-500 px-4 py-1 rounded-2xl font-semibold my-3 ' : 'bg-gray-100 px-4 py-1 rounded-2xl font-semibold my-3 ' } onClick={()=> setState('camera')}>camera</button>
 
         </div>
         <div className='grid grid-cols-4 px-3 '>

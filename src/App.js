@@ -7,6 +7,7 @@ import Product from './Pages/Product/Product';
 import Cart from './Pages/Cart/Cart';
 import Checkout from './Pages/Checkout/Checkout';
 import Payment from './Pages/Product/Payment/Payment';
+import SiginIn from './Pages/SiginIn/SiginIn';
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route exact path='/payment'>
             <Payment></Payment>
+          </Route>
+          <Route exact path='/signIn'>
+            <SiginIn></SiginIn>
           </Route>
         
         </Switch>
